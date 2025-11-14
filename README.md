@@ -24,6 +24,7 @@ dsc190-main/
 │   └── visualization/        # Scripts for plotting and figure generation
 │
 └── requirements.txt          # Python dependencies
+```
 
 ## Getting Started
 
