@@ -1,5 +1,4 @@
-# DSC190 Midterm Project
-
+# Evaluating the Influence of Fuel Costs and Charging Infrastructure on National and State-Level Electric Vehicle Adoption
 This repository contains my version of the DSC190 midterm project. It focuses on electric vehicle (EV) adoption across U.S. states and combines multiple public datasets (EV registrations, charging infrastructure, population, and gasoline prices) into a single panel-style dataset for exploration and forecasting.
 
 ## Project Goal & Approach
