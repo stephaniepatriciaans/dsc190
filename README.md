@@ -1,7 +1,40 @@
-# DSC190 Project
+# DSC190 Midterm Project
 
-This repository contains data, parsing scripts, cleaning pipelines, modeling code, and visualizations for analyzing electric vehicle (EV) registrations, population estimates, gasoline prices, and port data across multiple years.
+This repository contains my version of the DSC190 midterm project. It focuses on electric vehicle (EV) adoption across U.S. states and combines multiple public datasets (EV registrations, charging infrastructure, population, and gasoline prices) into a single panel-style dataset for exploration and forecasting.
 
+## Project Goal & Approach
+
+**Goal**
+
+Understand how EV adoption differs across states and over time, and how it is related to the build-out of public charging infrastructure. Use this relationship to create simple 5-year forecasts of EV adoption under different charging-infrastructure scenarios.
+
+**Approach**
+
+1. **Build a unified state–year dataset**
+   - Parse and clean raw data on EV registrations, public charging ports, state population, and gasoline prices.
+   - Merge these sources into a single panel dataset by state and year.
+   - Create per-capita metrics such as:
+     - EVs per 1,000 people
+     - Charging ports per 100,000 people
+
+2. **Describe and visualize EV adoption**
+   - Compute summary statistics for EV adoption and charging density.
+   - Plot trends over time for the top EV-adopting states.
+   - Visualize the relationship between EV adoption and charging ports.
+
+3. **Model the relationship between chargers and EVs**
+   - Fit a panel regression with state fixed effects:
+     - EVs per 1,000 as the outcome
+     - Chargers per 100k and a year trend as predictors
+   - Interpret how changes in charging density are associated with changes in EV adoption, after accounting for state-specific differences.
+
+4. **Forecast EV adoption**
+   - Use the panel model to generate 5-year forecasts under:
+     - A **baseline** scenario where charging ports grow at their historical rate.
+     - An **accelerated** scenario where charging ports grow faster than in the past.
+   - For comparison, fit simple ARIMA time-series models to EV adoption for each state and produce separate 5-year forecasts.
+
+---
 ## Repository Structure
 
 ```text
