@@ -4,7 +4,6 @@ This repository contains data, parsing scripts, cleaning pipelines, modeling cod
 
 ## Repository Structure
 
-```text
 dsc190-main/
 │
 ├── Datasets/                 # Raw datasets (CSV/XLSX) including EV registrations, ports data, gas prices, population
@@ -24,3 +23,39 @@ dsc190-main/
 │   └── visualization/        # Scripts for plotting and figure generation
 │
 └── requirements.txt          # Python dependencies
+
+## Getting Started
+
+### Installation
+
+1. Clone or unzip the repository.
+2. Install dependencies:
+
+   pip install -r requirements.txt
+
+### Running the Pipeline
+
+Most scripts are modularized inside `src/`:
+
+- **Parsing scripts** (`src/parsing/`) convert raw datasets into consistent formats.
+- **Cleaning scripts** (`src/cleaning/`) unify schemas and merge yearly datasets.
+- **Modeling scripts** (`src/modeling/`) generate forecasts and statistical outputs.
+- **Visualization scripts** (`src/visualization/`) produce plots saved in `reports/`.
+
+You can run components individually or through notebooks in the `notebooks/` folder.
+
+## Notebooks
+
+The `notebooks/` directory typically contains:
+
+- Data exploration  
+- Feature analysis  
+- Forecasting (ARIMA, panel models, linear regression)  
+- Visualization walkthroughs  
+
+## Processed Outputs
+
+Key outputs can be found in:
+
+- `data/processed/` — cleaned datasets and forecast CSVs  
+- `reports/` — plots and figures used in presentations/reports  
