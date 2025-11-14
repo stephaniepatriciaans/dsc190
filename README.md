@@ -4,6 +4,7 @@ This repository contains data, parsing scripts, cleaning pipelines, modeling cod
 
 ## Repository Structure
 
+```text
 dsc190-main/
 │
 ├── Datasets/                 # Raw datasets (CSV/XLSX) including EV registrations, ports data, gas prices, population
