@@ -18,13 +18,13 @@ The project also produces simple forecasts of EV adoption under different chargi
 
 ### Main Research Questions
 
-1. **RQ1 – Gas prices and EV adoption**  
+1. **RQ1 → Gas prices and EV adoption**  
    How are real gasoline prices associated with EV adoption (EVs per 1,000 residents) in the United States at the national and state level from 2020–2023?
 
-2. **RQ2 – Charging ports and EV adoption**  
+2. **RQ2 → Charging ports and EV adoption**  
    How strongly is the availability of public charging infrastructure (ports per 100,000 residents) associated with EV adoption (EVs per 1,000 residents) across U.S. states from 2020–2023?
 
-3. **RQ3 – Forecasting under alternative charging scenarios**  
+3. **RQ3 → Forecasting under alternative charging scenarios**  
    Under baseline versus accelerated growth in public charging infrastructure, how is EV adoption projected to evolve in the next few years?
 
 ### Guiding Questions 
@@ -63,7 +63,7 @@ These are the more intuitive questions that motivated the analysis:
    - Interpret how changes in charging density are associated with changes in EV adoption, after accounting for state-specific differences.
 
 4. **Forecast EV adoption**
-   - Use the panel model to generate 5-year forecasts under:
+   - Use the panel model to generate 5 year forecasts under:
      - A **baseline** scenario where charging ports grow at their historical rate.
      - An **accelerated** scenario where charging ports grow faster than in the past.
    - For comparison, fit simple ARIMA time-series models to EV adoption for each state and produce separate 5-year forecasts.
