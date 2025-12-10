@@ -76,8 +76,11 @@ The project also produces simple forecasts of EV adoption under different chargi
 │   └── 10641_gasoline_prices_by_year_1-26-24.xlsx
 │
 ├── data/
-│   ├── processed/            # Cleaned data, merged panel, forecasts, and generated figures
-│   └── raw/                  
+│   └── processed/            # Cleaned data, merged panel, forecasts, and generated figures
+│       ├── Cleaned tables
+│       ├── Forecast outputs
+│       ├── Text summaries
+│       └── Figures
 │
 ├── notebooks/                # Jupyter notebooks for exploratory analysis (optional)
 │
