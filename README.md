@@ -1,30 +1,52 @@
 # Evaluating the Influence of Fuel Costs and Charging Infrastructure on National and State-Level Electric Vehicle Adoption
-This repository contains my version of the DSC190 midterm project. It focuses on electric vehicle (EV) adoption across U.S. states and combines multiple public datasets (EV registrations, charging infrastructure, population, and gasoline prices) into a single panel-style dataset for exploration and forecasting.
 
-## Project Goal & Approach
+This repository contains my version of the DSC 190 midterm project. It builds a state–year panel that combines EV registrations, public charging infrastructure, population, and gasoline prices to explore how fuel costs and charging access relate to electric vehicle (EV) adoption over time in the United States.
+
+---
+
+## Project Overview
 
 **Goal**
 
-Understand how EV adoption differs across states and over time, and how it is related to the build-out of public charging infrastructure. Use this relationship to create simple 5-year forecasts of EV adoption under different charging-infrastructure scenarios.
+Quantify how EV adoption differs across states and over time, and evaluate the role of:
 
-**Approach**
+- Real gasoline prices
+- Public charging ports per capita  
+- Population and state-specific differences
+
+The project also produces simple forecasts of EV adoption under different charging infrastructure growth scenarios.
+
+**Main Questions**
+
+1. How have EVs per 1,000 people evolved nationally and across states since 2020?
+2. How strongly are gasoline prices associated with changes in EV adoption?
+3. How does public charging infrastructure per capita relate to EV penetration?
+4. How might EV adoption evolve over the next five years under baseline vs. accelerated charging build-out?
+
+---
+
+## Approach
 
 1. **Build a unified state–year dataset**
-   - Parse and clean raw data on EV registrations, public charging ports, state population, and gasoline prices.
+   - Parse and clean raw data on:
+     - EV registrations by state and year
+     - Public charging ports
+     - State population
+     - Gasoline prices (inflation-adjusted to 2023 dollars)
    - Merge these sources into a single panel dataset by state and year.
    - Create per-capita metrics such as:
      - EVs per 1,000 people
-     - Charging ports per 100,000 people
+     - Ports per 100,000 people
 
-2. **Describe and visualize EV adoption**
-   - Compute summary statistics for EV adoption and charging density.
-   - Plot trends over time for the top EV-adopting states.
-   - Visualize the relationship between EV adoption and charging ports.
+2. **Calculate descriptive statistics and trends**
+   - Summarize EV adoption and charging infrastructure by state and year.
+   - Identify top and bottom states in EVs per 1,000 residents.
+   - Examine how charging ports per capita have changed over time.
 
-3. **Model the relationship between chargers and EVs**
+3. **Relate charging infrastructure and EV adoption**
    - Fit a panel regression with state fixed effects:
-     - EVs per 1,000 as the outcome
-     - Chargers per 100k and a year trend as predictors
+     - Outcome: EVs per 1,000 people
+     - Predictors: chargers per 100k, year trend, and (optionally) gasoline prices
    - Interpret how changes in charging density are associated with changes in EV adoption, after accounting for state-specific differences.
 
 4. **Forecast EV adoption**
@@ -34,18 +56,30 @@ Understand how EV adoption differs across states and over time, and how it is re
    - For comparison, fit simple ARIMA time-series models to EV adoption for each state and produce separate 5-year forecasts.
 
 ---
+
 ## Repository Structure
 
 ```text
-dsc190/
+.
 │
 ├── Datasets/                 # Raw datasets (CSV/XLSX): EV registrations, ports, population, gas prices
+│   ├── 2020_ports.csv
+│   ├── 2021_ports.csv
+│   ├── 2022_ports.csv
+│   ├── 2023_ports.csv
+│   ├── ev_registrations_2020.csv
+│   ├── ev_registrations_2021.csv
+│   ├── ev_registrations_2022.csv
+│   ├── ev_registrations_2023.csv
+│   ├── population_estimate.csv
+│   ├── 10567_pev_sales_2-28-20.xlsx
+│   └── 10641_gasoline_prices_by_year_1-26-24.xlsx
 │
 ├── data/
 │   ├── processed/            # Cleaned data, merged panel, forecasts, and generated figures
-│   └── raw/                  # (Optional) Raw data location used by the parsing scripts
+│   └── raw/                  # (Optional) Alternate raw-data location if you want to copy Datasets/ here
 │
-├── notebooks/                # Jupyter notebooks for exploratory analysis (if used)
+├── notebooks/                # Jupyter notebooks for exploratory analysis (optional)
 │
 ├── reports/                  # Plots and figures for write-ups or slides
 │
@@ -59,63 +93,17 @@ dsc190/
 │   ├── cleaning/             # Data merging / feature construction
 │   │   └── build_panel.py    # Builds state–year panel with per-capita metrics
 │   │
-│   ├── analysis/             # Summary stats and forecasting
+│   ├── analysis/             # Summary stats and modeling / forecasting
 │   │   ├── descriptives.py           # Basic summaries of the panel dataset
+│   │   ├── gas_vs_ev.py              # Gas prices vs national EV adoption
+│   │   ├── rq1_gas_vs_ev.py          # RQ1-focused analysis script
 │   │   └── forecast_ev_panel.py      # Panel + ARIMA forecasts for EV adoption
 │   │
 │   └── visualization/        # Plotting utilities
-│       └── plots.py          # Line plot for top states, scatter of ports vs EVs
+│       └── plots.py          # Line charts, scatter plots, and other figures
 │
 ├── src/config.py             # Central paths for raw/processed data files
 │
+├── README.md                 # This file
 └── requirements.txt          # Python dependencies for the project
 ```
-## Data and Key Outputs
-
-- **Raw data:** CSV/XLSX files in `Datasets/`.
-- **Cleaned & merged data:**
-  - `data/processed/ev_registrations_clean.csv`
-  - `data/processed/ports_clean.csv`
-  - `data/processed/population_states.csv`
-  - `data/processed/gas_prices_clean.csv`
-  - `data/processed/panel.csv` (main state–year dataset)
-- **Forecasts (when scripts are run):**
-  - `data/processed/forecast_panel_baseline.csv`
-  - `data/processed/forecast_panel_accelerated.csv`
-  - `data/processed/forecast_arima.csv`
-- **Figures:**
-  - `data/processed/ev_per_1000_top_states.png`
-  - `data/processed/ports_vs_ev_scatter.png`
-
-## Setup
-
-1. Install Python (version compatible with `requirements.txt`).
-2. From the project root, install dependencies:
-
-   pip install -r requirements.txt
-
-## Reproducing the Analysis
-
-From the project root:
-
-1. **Parse raw datasets** (creates cleaned CSVs in `data/processed/`):
-
-   - Run the scripts in `src/parsing/`, for example:
-     - parse_ev_registrations.py
-     - parse_ports.py
-     - parse_population.py
-     - parse_gas_prices.py
-
-2. **Build the panel dataset**:
-
-   - Run `src/cleaning/build_panel.py`  
-     → writes `data/processed/panel.csv`
-
-3. **Explore and model**:
-
-   - Run `src/analysis/descriptives.py` for basic summaries.  
-   - Run `src/analysis/forecast_ev_panel.py` to create forecast CSVs.
-
-4. **Generate plots**:
-
-   - Run `src/visualization/plots.py` to produce figures stored in `data/processed/`.
