@@ -16,11 +16,24 @@ Quantify how EV adoption differs across states and over time, and evaluate the r
 
 The project also produces simple forecasts of EV adoption under different charging infrastructure growth scenarios.
 
-**Main Questions**
+### Main Research Questions
 
-1. How have EVs per 1,000 people evolved nationally and across states since 2020?
-2. How strongly are gasoline prices associated with changes in EV adoption?
-3. How does public charging infrastructure per capita relate to EV penetration?
+1. **RQ1 – Gas prices and EV adoption**  
+   How are real gasoline prices associated with EV adoption (EVs per 1,000 residents) in the United States at the national and state level from 2020–2023?
+
+2. **RQ2 – Charging ports and EV adoption**  
+   How strongly is the availability of public charging infrastructure (ports per 100,000 residents) associated with EV adoption (EVs per 1,000 residents) across U.S. states from 2020–2023?
+
+3. **RQ3 – Forecasting under alternative charging scenarios**  
+   Under baseline versus accelerated growth in public charging infrastructure, how is EV adoption projected to evolve in the next few years?
+
+### Guiding Questions 
+
+These are the more intuitive questions that motivated the analysis:
+
+1. How have EVs per 1,000 people evolved nationally and across states since 2020?  
+2. How strongly are gasoline prices associated with changes in EV adoption?  
+3. How does public charging infrastructure per capita relate to EV penetration?  
 4. How might EV adoption evolve over the next five years under baseline vs. accelerated charging build-out?
 
 ---
