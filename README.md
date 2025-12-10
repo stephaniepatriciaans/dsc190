@@ -77,7 +77,7 @@ The project also produces simple forecasts of EV adoption under different chargi
 │
 ├── data/
 │   ├── processed/            # Cleaned data, merged panel, forecasts, and generated figures
-│   └── raw/                  # (Optional) Alternate raw-data location if you want to copy Datasets/ here
+│   └── raw/                  
 │
 ├── notebooks/                # Jupyter notebooks for exploratory analysis (optional)
 │
