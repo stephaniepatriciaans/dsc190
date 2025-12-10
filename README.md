@@ -1,6 +1,6 @@
 # Evaluating the Influence of Fuel Costs and Charging Infrastructure on National and State-Level Electric Vehicle Adoption
 
-This repository contains my version of the DSC 190 midterm project. It builds a state–year panel that combines EV registrations, public charging infrastructure, population, and gasoline prices to explore how fuel costs and charging access relate to electric vehicle (EV) adoption over time in the United States.
+This repository contains my version of the DSC 190 project. It builds a state–year panel that combines EV registrations, public charging infrastructure, population, and gasoline prices to explore how fuel costs and charging access relate to electric vehicle (EV) adoption over time in the United States.
 
 ---
 
