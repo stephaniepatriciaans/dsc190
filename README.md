@@ -97,10 +97,11 @@ The project also produces simple forecasts of EV adoption under different chargi
 │   │   └── build_panel.py    # Builds state–year panel with per-capita metrics
 │   │
 │   ├── analysis/             # Summary stats and modeling / forecasting
-│   │   ├── descriptives.py           # Basic summaries of the panel dataset
-│   │   ├── gas_vs_ev.py              # Gas prices vs national EV adoption
-│   │   ├── rq1_gas_vs_ev.py          # RQ1-focused analysis script
-│   │   └── forecast_ev_panel.py      # Panel + ARIMA forecasts for EV adoption
+│   │   ├── descriptives.py          # Basic summaries of the panel dataset
+│   │   ├── gas_vs_ev.py             # RQ1: national EV adoption vs gas prices
+│   │   ├── logspec_fe.py            # RQ2: log–log ports per capita FE model (state FE)
+│   │   ├── state_gas_fe.py          # Robustness: state-level EV vs gas with state FE
+│   │   └── forecast_ev_panel.py     # Panel + ARIMA forecasts for EV adoption
 │   │
 │   └── visualization/        # Plotting utilities
 │       └── plots.py          # Line charts, scatter plots, and other figures

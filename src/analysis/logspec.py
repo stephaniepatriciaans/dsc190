@@ -65,7 +65,7 @@ def main():
     # ===========================================================================================================
     # 3. Save to txt
     # ===========================================================================================================
-    out_path = TEXT_SUMMARIES_DIR / "logspec_fe_summary.txt"
+    out_path = TEXT_SUMMARIES_DIR / "logspec_summary.txt"
     with open(out_path, "w") as f:
         f.write("=== Robustness: log–log FE regression ===\n\n")
         f.write(f"Formula: {formula}\n\n")
@@ -83,7 +83,7 @@ def main():
         else:
             f.write("  Coefficient for log_ports_per_100k not found.\n")
 
-    print(f"\nSaved log-spec FE summary to {out_path}")
+    print(f"\nSaved log-spec summary to {out_path}")
 
 
 if __name__ == "__main__":
