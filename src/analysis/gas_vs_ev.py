@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import statsmodels.formula.api as smf
 
-from src.config import PANEL_FILE, GAS_CLEAN_FILE, PROCESSED_DIR
+from src.config import PANEL_FILE, GAS_CLEAN_FILE, TEXT_SUMMARIES_DIR
 
 
 def main():
@@ -91,7 +91,7 @@ def main():
     # ===========================================================================================================
     # 5. Save summary to text file for the report
     # ===========================================================================================================
-    out_path = PROCESSED_DIR / "gas_vs_ev_summary.txt"
+    out_path = TEXT_SUMMARIES_DIR / "gas_vs_ev_summary.txt"
     with open(out_path, "w") as f:
         f.write("=== Gas vs EV adoption (national series) ===\n\n")
         f.write("Years used: " + ", ".join(map(str, merged["year"].tolist())) + "\n\n")

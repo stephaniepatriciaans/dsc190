@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import statsmodels.formula.api as smf
 
-from src.config import PANEL_FILE, PROCESSED_DIR
+from src.config import PANEL_FILE, TEXT_SUMMARIES_DIR
 
 
 def main():
@@ -65,7 +65,7 @@ def main():
     # ===========================================================================================================
     # 3. Save to txt
     # ===========================================================================================================
-    out_path = PROCESSED_DIR / "logspec_fe_summary.txt"
+    out_path = TEXT_SUMMARIES_DIR / "logspec_fe_summary.txt"
     with open(out_path, "w") as f:
         f.write("=== Robustness: log–log FE regression ===\n\n")
         f.write(f"Formula: {formula}\n\n")

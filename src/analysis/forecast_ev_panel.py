@@ -6,7 +6,8 @@ from statsmodels.tsa.arima.model import ARIMA
 import warnings
 warnings.filterwarnings('ignore')
 
-from src.config import PANEL_FILE, PROCESSED_DIR
+from src.config import PANEL_FILE, FORECAST_DIR
+
 
 # =========================================================================================================
 # 1. Load panel
@@ -28,6 +29,7 @@ if missing:
 # Use only the years
 merged = panel[required].dropna().copy()
 
+
 # ===========================================================================================================
 # 2. Panel regression with FE
 # ===========================================================================================================
@@ -41,6 +43,7 @@ panel_model = smf.ols(
 
 print("=== Panel regression summary ===")
 print(panel_model.summary())
+
 
 # ===========================================================================================================
 # 3. Panel forecasts: baseline & accelerated
@@ -122,6 +125,7 @@ forecast_panel_acc = pd.DataFrame(forecast_rows_acc)
 print("\n=== Panel forecasts (accelerated) – mean EVs_per_1000 by year ===")
 print(forecast_panel_acc.groupby("Year")["EVs_per_1000_forecast_panel_acc"].mean())
 
+
 # =====================================================================================================
 # 4. Per-state ARIMA time-series EVs
 # =====================================================================================================
@@ -154,13 +158,14 @@ if not arima_df.empty:
 else:
     print("Not enough data for ARIMA forecasts.")
 
+
 # =========================================================================================================
-# 5. Save to CSV in processed
+# 5. Save to CSV 
 # =========================================================================================================
 
-out_baseline = PROCESSED_DIR / "forecast_panel_baseline.csv"
-out_acc = PROCESSED_DIR / "forecast_panel_accelerated.csv"
-out_arima = PROCESSED_DIR / "forecast_arima.csv"
+out_baseline = FORECAST_DIR / "forecast_panel_baseline.csv"
+out_acc = FORECAST_DIR / "forecast_panel_accelerated.csv"
+out_arima = FORECAST_DIR / "forecast_arima.csv"
 
 forecast_panel.to_csv(out_baseline, index=False)
 forecast_panel_acc.to_csv(out_acc, index=False)
