@@ -1,6 +1,7 @@
 === Gas vs EV adoption (national series) ===
 
-Years used: 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023
+Years used for correlations: 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023
+Years used for OLS: 2020, 2021, 2022, 2023
 
 Correlations in levels:
   Pearson r = nan
@@ -10,30 +11,30 @@ Correlations in growth rates (year-to-year % change):
   Pearson r = 0.628
   Spearman r = 0.400
 
-OLS regression: ev_per_1000 ~ gas_real_2023 + year_centered
+OLS regression: ev_per_1000 ~ gas_real_2023 + year_centered (2020–2023)
 
                             OLS Regression Results                            
 ==============================================================================
-Dep. Variable:            ev_per_1000   R-squared:                         nan
-Model:                            OLS   Adj. R-squared:                    nan
-Method:                 Least Squares   F-statistic:                       nan
-Date:                Thu, 11 Dec 2025   Prob (F-statistic):                nan
-Time:                        01:20:37   Log-Likelihood:                    nan
-No. Observations:                   8   AIC:                               nan
-Df Residuals:                       5   BIC:                               nan
+Dep. Variable:            ev_per_1000   R-squared:                       0.986
+Model:                            OLS   Adj. R-squared:                  0.957
+Method:                 Least Squares   F-statistic:                     34.57
+Date:                Thu, 11 Dec 2025   Prob (F-statistic):              0.119
+Time:                        01:35:25   Log-Likelihood:                -4.1828
+No. Observations:                   4   AIC:                             14.37
+Df Residuals:                       1   BIC:                             12.52
 Df Model:                           2                                         
 Covariance Type:            nonrobust                                         
 =================================================================================
                     coef    std err          t      P>|t|      [0.025      0.975]
 ---------------------------------------------------------------------------------
-Intercept            nan        nan        nan        nan         nan         nan
-gas_real_2023        nan        nan        nan        nan         nan         nan
-year_centered       -inf        nan        nan        nan         nan         nan
+Intercept        18.6880      5.626      3.322      0.186     -52.796      90.172
+gas_real_2023    -1.7684      1.638     -1.079      0.476     -22.586      19.049
+year_centered     5.7282      0.862      6.647      0.095      -5.222      16.679
 ==============================================================================
-Omnibus:                          nan   Durbin-Watson:                     nan
-Prob(Omnibus):                    nan   Jarque-Bera (JB):                  nan
-Skew:                             nan   Prob(JB):                          nan
-Kurtosis:                         nan   Cond. No.                         30.8
+Omnibus:                          nan   Durbin-Watson:                   3.132
+Prob(Omnibus):                    nan   Jarque-Bera (JB):                0.635
+Skew:                          -0.849   Prob(JB):                        0.728
+Kurtosis:                       2.038   Cond. No.                         30.8
 ==============================================================================
 
 Notes:
